@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import pl.mqhstudio.pma.dao.EmployeeRepository;
 import pl.mqhstudio.pma.entities.Employee;
 
@@ -21,7 +20,7 @@ public class EmployeeController {
 	public String displayEmployeeForm(Model model) {
 		Employee anEmployee = new Employee();
 		model.addAttribute("employee", anEmployee);
-		return "new-employee";
+		return "employees/new-employee";
 	}
 	
 	@PostMapping("/save")

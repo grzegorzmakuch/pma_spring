@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	</head>
+<head th:replace="layouts :: header"></head>
 	<body>
-		<div class="container">
+	<nav th:replace="layouts :: navbar"></nav>
+	<div class="container">
 			<form action="/projects/save" th:object="${project}" method="POST">
 				<input type="text" placeholder="Project name" th:field="${project.name}">
 				<select th:field="${project.stage}">
