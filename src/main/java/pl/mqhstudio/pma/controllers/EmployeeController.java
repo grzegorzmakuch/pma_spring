@@ -9,13 +9,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.mqhstudio.pma.dao.EmployeeRepository;
 import pl.mqhstudio.pma.entities.Employee;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/employees")
 public class EmployeeController {
 	
 	@Autowired
 	EmployeeRepository empRepo;
-	
+
+	@GetMapping()
+	public String displayListEmployees(Model model) {
+		List<Employee> empList = empRepo.findAll();
+		model.addAttribute("employeesList", empList);
+		return "employees/list-employees";
+	}
+
 	@GetMapping("/new")
 	public String displayEmployeeForm(Model model) {
 		Employee anEmployee = new Employee();

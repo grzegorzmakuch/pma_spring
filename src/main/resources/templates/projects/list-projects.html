@@ -3,5 +3,25 @@
 <head th:replace="layouts :: header"></head>
 <body>
 <nav th:replace="layouts :: navbar"></nav>
+<div class="container">
+    <h3>Projects Directory</h3>
+    <hr>
+    <a th:href="@{/projects/new}" class="btn btn-primary">Add Project</a>
+    <table class="table table-striped table-dark">
+        <br><br>
+        <thead>
+        <tr>
+            <th>Project Name</th>
+            <th>Project Stage</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="aProject : ${projectsList}">
+            <td th:text="${aProject.name}"></td>
+            <td th:text="${aProject.stage}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
